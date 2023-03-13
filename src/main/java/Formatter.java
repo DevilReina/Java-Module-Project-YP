@@ -1,8 +1,11 @@
 public class Formatter {
         String numFormat (double num) {
-            double lastNumber = num % 100;
+            double lastNumber = (int) Math.floor(num);
             int ruble =(int) Math.floor(lastNumber);
-            switch (ruble) {
+            if (lastNumber % 100 >= 11 && lastNumber % 100 <= 14)  {
+                return " рублей";
+            }
+            switch (ruble % 10) {
                 case 1:
                     return "рубль";
                 case 2:
